@@ -1,6 +1,7 @@
 from InventarioStub import InventarioStub
 from UsuarioDummy import UsuarioDummy
 from RepositorioFake import RepositorioFake
+from EmailDummy import EmailDummy
 
 class TicketService:
     def __init__(self, inventario, repositorio, email_service):
@@ -21,7 +22,11 @@ class TicketService:
 # Service = TicketService(None, None, None)
 # Service = TicketService(InventarioStub(), None, None)
 # Service = TicketService(InventarioStub(), UsuarioDummy(), None)
-Service = TicketService(InventarioStub(), RepositorioFake(), None)
-resultado = Service.comprar("Ana", 2)
+# Service = TicketService(InventarioStub(), RepositorioFake(), None)
+# resultado = Service.comprar("Ana", 2)
+# print(resultado)
+
+Service = TicketService(InventarioStub(), RepositorioFake(), EmailDummy())
+resultado = Service.comprar(UsuarioDummy(), 2)
 print(resultado)
 
